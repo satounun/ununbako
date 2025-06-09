@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+    <title>計算機</title>
+  </head>
+  <body>
+    <header>
+        <h1 class="ffDotGothic16">計算機を作ろー！</h1>
+    </header>
+    <main>
+        <form name="calculator">
+            <table id="table">
+                <!-- 計算結果スクリーン -->
+                <tr>
+                    <td colspan="4">
+                        <input type="text" class="display" name="display" value="" disabled> <!--textboxとして入力できなくする-->
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" value="7" onclick="get_calc(this)"></td> <!--onclickでクリック時にファンクションを呼び出す -->
+                    <td><input type="button" value="8" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="9" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="÷" class="operator" name="div_btn" onclick="get_calc(this)"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="5" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="6" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="×" class="operator" name="multi_btn" onclick="get_calc(this)"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="3" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="2" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="1" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="-" class="operator" onclick="get_calc(this)"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="0" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="C" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="=" class="equal" onclick="get_calc(this)"></td>
+                    <td><input type="button" value="+" class="operator" onclick="get_calc(this)"></td>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <footer>
+        <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
+    </footer>
+    <script>
+        // ボタンの機能を追加
+        function get_calc(btn){ 
+            if(btn.value === "="){ // 「=」を押したらクリックされた数値の計算結果が表示される
+                document.calculator.display.value = eval(document.calculator.display.value);
+            } else if(btn.value === "C") { // 「c」を押したらスクリーンは空になる
+                document.calculator.display.value = "";
+            } else { 
+                if(btn.value === "×"){ // かける
+                    btn.value = "*";
+                } else if(btn.value === "÷"){ //割る
+                    btn.value = "/";
+                }
+                // 表示
+                document.calculator.display.value += btn.value; // ボタンを押すたびスクリーンに表示されていく
+                document.calculator.multi_btn.value = "×"; // ×を表示するはずだがされない
+                document.calculator.div_btn.value = "÷"; // ÷。。。
+            }
+        }
+    </script>
+  </body>

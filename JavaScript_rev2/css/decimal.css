@@ -1,0 +1,42 @@
+main{
+    text-align: center;
+    margin-bottom: 100px;
+}
+h2{
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+input{
+    width: 400px;
+    height: 60px;
+    font-size: x-large;
+    border: 3px solid #eb6ea0;
+    border-radius: 10px;
+    background-color: #dcdcdca4;
+    margin-bottom: 20px;
+}
+input[type="submit"]{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #eb6ea0;
+    color: #fff;
+    margin-bottom: 0;
+}
+input:focus{
+    background-color: #fff;
+}
+input[type="submit"]:focus{
+    background-color: #eb6ea0;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.hidden{
+    display: none;
+}
+.red{
+    color: red;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,119 @@
+@charset "UTF-8";
+body{
+    background-color: #CEE6C1;
+    padding: 0 70px;
+}
+main{
+    padding: 20px 10px;
+}
+.royalstrateflush ul{
+    display: flex;
+    justify-content: center;
+}
+img{
+    height: 150px;
+    width: 100px;
+}
+header,
+footer{
+    text-align: center; 
+}
+.innerWrap{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+main{
+    background-color: #ffffff;
+    flex-basis: 70%;
+}
+aside{
+    flex-basis: 25%;
+}
+aside a{
+    border-bottom: 1px solid #000000;
+}
+aside li{
+    margin-bottom: 10px;
+}
+.ffDotGothic16{
+    font-family: 'DotGothic16', san-serif;
+}
+h1{
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#cardImg{
+    text-align: center;
+}
+table,
+th,
+td{
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 5px;
+}
+table{
+    margin: 30px auto;
+}
+.royalstrateflush{
+    background-color: green;
+    border: 5px double gold;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+span{
+    color: red;
+    font-weight: bold;
+}
+@media screen and (max-width: 640px){
+    body{
+        padding: 0 5px;
+    }
+    .innerWrap{
+        display: block;
+    }
+    h1{
+        font-size: 50px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    h3{
+        font-size: 18px;
+    }
+    aside ul{
+        display: flex;
+        justify-content: center;
+    }
+    aside li{
+        margin-right: 40px;
+    }
+    aside li:last-of-type{
+        margin-right: 0;
+    }
+    table{
+        width: 95%;
+        padding-bottom: 60px;
+    }
+    .royalstrateflush img{
+        width: 67px;
+        height: 100px;
+    }
+    main{
+        margin-bottom: 60px;
+    }
+}

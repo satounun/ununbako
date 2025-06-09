@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/decimal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+    <title>10進数</title>
+  </head>
+  <body>
+    <header>
+        <h1 class="ffDotGothic16">10進数変換器だ！</h1>
+    </header>
+    <main>
+        <form name="change10" onsubmit="get_decimal(event);">
+            <h2>10進数を入力してね(整数)</h2>
+            <p><input type="text" class="decimal" name="decimal" value=""></p>
+            <p class="hidden red" id="alert">※整数を入力してね</p>
+            <p><input type="submit" value="変換"></p>
+            <p><img src="img/downarrow.png" alt=""></p>
+            <h2>2進数にするね</h2>
+            <p><input type="text" class="binary" name="binary" value="" disabled></p>
+            <h2>16進数にするね</h2>
+            <p><input type="text" class="hexadecimal" name="hexadecimal" value="" disabled></p>  
+        </form>
+    </main>
+    <footer>
+        <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
+    </footer>
+    <script>
+        function get_decimal(event) {
+            event.preventDefault();
+            const num = parseInt(document.change10.decimal.value, 10);
+            const alertEl = document.getElementById('alert');
+
+            if(isNaN(num)) { 
+                alertEl.classList.remove('hidden');
+                document.change10.binary.value = '';
+                document.change10.hexadecimal.value = '';
+                return;
+            }
+
+            alertEl.classList.add('hidden');
+            document.change10.binary.value = num.toString(2);
+            document.change10.hexadecimal.value = num.toString(16).toUpperCase();
+        }
+    </script>
+  </body>

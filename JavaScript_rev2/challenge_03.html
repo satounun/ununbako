@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/decimal.css">
+    <link rel="stylesheet" href="css/prime.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+    <title>素数</title>
+  </head>
+  <body>
+    <header>
+        <h1 class="ffDotGothic16">素数を並べるよ！</h1>
+    </header>
+    <main>
+        <form name="searchPrime" onsubmit="get_num(event);">
+            <h2>お好きな数を入力してね</h2>
+            <p class="explain">入力した数までの素数を表示するよ</p>
+            <p><input type="text" class="number" name="number" value=""></p>
+            <p><input type="submit" value="変換"></p>
+            <p><img src="img/downarrow.png" alt=""></p>
+            <h2>素数</h2>
+            <p><textarea class="prime" name="prime" rows="5" cols="30" disabled></textarea></p>
+        </form>
+    </main>
+    <footer>
+        <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
+    </footer>
+    <script>
+        function get_num(event) {
+            event.preventDefault();
+            const num = parseInt(document.searchPrime.number.value, 10);
+            let primes = [];
+
+            nextNum: // ;ではない注意
+            for(let i = 2; i <= num; i++) {
+
+                for(let j = 2; j < Math.sqrt(i); j++) { //　Math.sqrtは平方根を求める
+                    if(i % j === 0) continue nextNum; // 余りが０なら飛ばして次の数字を評価する
+                }
+                primes.push(i); // 素数を見つけたらiに格納していく
+            }
+
+            document.searchPrime.prime.value = primes.join(", "); // リストに入ってる素数たちをカンマ区切りで表示
+        }
+    </script>
+  </body>
