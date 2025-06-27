@@ -13,19 +13,27 @@
     <header>
         <h1 class="ffDotGothic16">10進数変換器だ！</h1>
     </header>
-    <main>
-        <form name="change10" onsubmit="get_decimal(event);">
-            <h2>10進数を入力してね(整数)</h2>
-            <p><input type="text" class="decimal" name="decimal" value=""></p>
-            <p class="hidden red" id="alert">※整数を入力してね</p>
-            <p><input type="submit" value="変換"></p>
-            <p><img src="img/downarrow.png" alt=""></p>
-            <h2>2進数にするね</h2>
-            <p><input type="text" class="binary" name="binary" value="" disabled></p>
-            <h2>16進数にするね</h2>
-            <p><input type="text" class="hexadecimal" name="hexadecimal" value="" disabled></p>  
-        </form>
-    </main>
+    <div class="wrapper">
+        <main>
+            <form name="change10" onsubmit="get_decimal(event);">
+                <h2>10進数を入力してね(整数)</h2>
+                <p><input type="text" class="decimal" name="decimal" value=""></p>
+                <p class="hidden red" id="alert">※整数を入力してね</p>
+                <p><input type="submit" value="変換"></p>
+                <p><img src="img/downarrow.png" alt=""></p>
+                <h2>2進数にするね</h2>
+                <p><input type="text" class="binary" name="binary" value="" disabled></p>
+                <h2>16進数にするね</h2>
+                <p><input type="text" class="hexadecimal" name="hexadecimal" value="" disabled></p>  
+            </form>
+        </main>
+        <nav>
+            <ul>
+                <li><a href="challenge_01.html">計算機</a></li>
+                <li><a href="challenge_03.html">素数並べ</a></li>
+            </ul>
+        </nav>
+    </div>
     <footer>
         <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
     </footer>

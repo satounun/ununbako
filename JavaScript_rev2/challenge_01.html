@@ -13,43 +13,51 @@
     <header>
         <h1 class="ffDotGothic16">計算機を作ろー！</h1>
     </header>
-    <main>
-        <form name="calculator">
-            <table id="table">
-                <!-- 計算結果スクリーン -->
-                <tr>
-                    <td colspan="4">
-                        <input type="text" class="display" name="display" value="" disabled> <!--textboxとして入力できなくする-->
-                    </td>
-                </tr>
+    <div class="wrapper">
+        <main>
+            <form name="calculator">
+                <table id="table">
+                    <!-- 計算結果スクリーン -->
+                    <tr>
+                        <td colspan="4">
+                            <input type="text" class="display" name="display" value="" disabled> <!--textboxとして入力できなくする-->
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td><input type="button" value="7" onclick="get_calc(this)"></td> <!--onclickでクリック時にファンクションを呼び出す -->
-                    <td><input type="button" value="8" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="9" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="÷" class="operator" name="div_btn" onclick="get_calc(this)"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="4" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="5" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="6" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="×" class="operator" name="multi_btn" onclick="get_calc(this)"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="3" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="2" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="1" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="-" class="operator" onclick="get_calc(this)"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="0" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="C" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="=" class="equal" onclick="get_calc(this)"></td>
-                    <td><input type="button" value="+" class="operator" onclick="get_calc(this)"></td>
-                </tr>
-            </table>
-        </form>
-    </main>
+                    <tr>
+                        <td><input type="button" value="7" onclick="get_calc(this)"></td> <!--onclickでクリック時にファンクションを呼び出す -->
+                        <td><input type="button" value="8" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="9" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="÷" class="operator" name="div_btn" onclick="get_calc(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="4" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="5" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="6" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="×" class="operator" name="multi_btn" onclick="get_calc(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="3" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="2" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="1" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="-" class="operator" onclick="get_calc(this)"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="0" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="C" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="=" class="equal" onclick="get_calc(this)"></td>
+                        <td><input type="button" value="+" class="operator" onclick="get_calc(this)"></td>
+                    </tr>
+                </table>
+            </form>
+        </main>
+    <nav>
+        <ul>
+            <li><a href="challenge_02.html">10進数変換機</a></li>
+            <li><a href="challenge_03.html">素数並べ</a></li>
+        </ul>
+    </nav>
+    </div>
     <footer>
         <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
     </footer>

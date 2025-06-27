@@ -79,6 +79,23 @@ span{
     color: red;
     font-weight: bold;
 }
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+main{
+    flex-basis: 75%;
+}
+nav{
+    flex-basis: 20%;
+    background-color: #fff;
+    border-radius: 30px;
+    height: 100px;
+    padding: 20px;
+}
+nav ul li{
+    margin-bottom: 20px;
+}
 @media screen and (max-width: 640px){
     body{
         padding: 0 5px;
@@ -115,5 +132,12 @@ span{
     }
     main{
         margin-bottom: 60px;
+    }
+    .wrapper{
+        display: block;
+    }
+    nav{
+        margin-bottom: 30px;
+        text-align: center;
     }
 }

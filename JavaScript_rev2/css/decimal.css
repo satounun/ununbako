@@ -40,3 +40,11 @@ img{
     color: red;
     margin-bottom: 10px;
 }
+@media screen and (max-width: 640px){
+    input{
+        width: 90%;
+    }
+    .prime{
+        width: 90%;
+    }
+}

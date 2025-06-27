@@ -14,17 +14,25 @@
     <header>
         <h1 class="ffDotGothic16">素数を並べるよ！</h1>
     </header>
-    <main>
-        <form name="searchPrime" onsubmit="get_num(event);">
-            <h2>お好きな数を入力してね</h2>
-            <p class="explain">入力した数までの素数を表示するよ</p>
-            <p><input type="text" class="number" name="number" value=""></p>
-            <p><input type="submit" value="変換"></p>
-            <p><img src="img/downarrow.png" alt=""></p>
-            <h2>素数</h2>
-            <p><textarea class="prime" name="prime" rows="5" cols="30" disabled></textarea></p>
-        </form>
-    </main>
+    <div class="wrapper">
+        <main>
+            <form name="searchPrime" onsubmit="get_num(event);">
+                <h2>お好きな数を入力してね</h2>
+                <p class="explain">入力した数までの素数を表示するよ</p>
+                <p><input type="text" class="number" name="number" value=""></p>
+                <p><input type="submit" value="変換"></p>
+                <p><img src="img/downarrow.png" alt=""></p>
+                <h2>素数</h2>
+                <p><textarea class="prime" name="prime" rows="5" cols="30" disabled></textarea></p>
+            </form>
+        </main>
+        <nav>
+            <ul>
+                <li><a href="challenge_01.html">計算機</a></li>
+                <li><a href="challenge_02.html">16進数変換機</a></li>
+            </ul>
+        </nav>
+    </div>
     <footer>
         <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
     </footer>
