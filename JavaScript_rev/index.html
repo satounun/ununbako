@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+    <title>JavaScriptの練習｜文章</title>
+  </head>
+  <body id="body">
+    <header>
+        <h1 class="ffDotGothic16">JavaScriptの練習</h1>
+    </header>
+    <div class="innerWrap">
+        <main>
+            <h2>ご挨拶</h2>
+            <p>
+                佐藤結花です。<br>
+                春ですね。春がきれいすぎて人生楽しいです。<br>
+                いきものさいこー！いきものに生まれてよかったです。
+            </p>
+        </main>
+        <aside>
+            <h3>各ページへのリンク</h3>
+            <ul>
+                <li><a href="image.html">画像</a></li>
+                <li><a href="put_cards.html">複数画像の表示</a></li>
+                <li><a href="table.html">表</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
+    </footer>
+    <div id="privacy-panel">
+        <p>
+            クッキーっていうのはね、ユーザーが次にログインするときに前のログイン情報を記憶してくれたり、とにかく便利な機能なんだ！あなたのプライバシーにかかわるから、承認しても良ければボタンを押してね～。
+        </p>
+        <button id="agreebtn">オッケー</button>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+    <script src="scripts/js.cookie.js"></script>
+    <script>
+        'use strict';
+
+        const agree = Cookies.get('cookie-agree');
+        const panel = document.getElementById('privacy-panel');
+        const body = document.getElementById('body');
+        if(agree === 'yes'){
+            console.log('クッキーオッケー');
+            document.body.removeChild(panel);
+            body.classList.add('changeColor');
+        } else {
+            console.log('クッキーだめ');
+            document .getElementById('agreebtn').onclick = function() {
+                Cookies.set('cookie-agree', 'yes', {expires: 7});
+                document.body.removeChild(panel);
+                body.classList.add('changeColor');
+            };
+        }
+
+        const hour = new Date().getHours();
+        
+        if(hour <= 3 || hour >= 17){
+            window.alert('こんばんわ。たくさん寝ようね。')
+        } else if(hour >= 4 && hour <= 9){
+            window.alert('おはよー。ねむいね。')
+        } else {
+            window.alert('こんにちは。何してるの？');
+        }
+    </script>
+    <noscript>
+        <p>このメッセージを見れてるあなたはラッキーだよ。</p>
+    </noscript>
+  </body>

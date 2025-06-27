@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet"> 
+    <title>JavaScriptの練習｜複数画像の表示</title>
+  </head>
+  <body id="body">
+    <header>
+        <h1 class="ffDotGothic16">JavaScriptの練習</h1>
+    </header>
+    <div class="innerWrap">
+        <main id="main">
+            <h2 id="h2"></h2>
+            <div class="royalstrateflush">
+                <ul id="ul">
+                </ul>
+            </div>
+            <p id="p">
+                <span id="span"></span>
+            </p>
+        </main>
+        <aside>
+            <h3>各ページへのリンク</h3>
+            <ul>
+                <li><a href="index.html">文章</a><li>
+                <li><a href="image.html">画像</a><li>
+                <li><a href="table.html">表</a><li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p class="ffDotGothic16"><small>@jituhanekodesuyukasato</small></p>
+    </footer>
+    <div id="privacy-panel">
+        <p>
+            クッキーっていうのはね、ユーザーが次にログインするときに前のログイン情報を記憶してくれたり、とにかく便利な機能なんだ！あなたのプライバシーにかかわるから、承認しても良ければボタンを押してね～。
+        </p>
+        <button id="agreebtn">オッケー</button>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+    <script src="scripts/js.cookie.js"></script>
+    <script>
+    'use strict'
+
+    const agree = Cookies.get('cookie-agree');
+    const panel = document.getElementById('privacy-panel');
+    const body = document.getElementById('body');
+    if(agree === 'yes'){
+        console.log('クッキーオッケー');
+        document.body.removeChild(panel);
+        body.classList.add('changeColor');
+    } else {
+        console.log('クッキーだめ');
+        document .getElementById('agreebtn').onclick = function() {
+            Cookies.set('cookie-agree', 'yes', {expires: 7});
+            document.body.removeChild(panel);
+            body.classList.add('changeColor');
+        };
+    }
+
+    let cardMark = ['club', 'diamond', 'heart', 'spade'];
+    let cardNumber = [...Array(13).keys()].map(i => String(i + 1).padStart(2, '0'));
+
+    function preloadImage(path){
+        let imgTag = new Image();
+        imgTag.src = path;
+    }
+
+    for(let i = 0; i < cardMark.length; i++){
+        for(let j = 0; j < cardNumber.length; j++){
+        let mark = cardMark[i];
+        let number = cardNumber[j];
+        let imagePath = `Img_cardDeck/card_${mark}_${number}.png`;
+        preloadImage(imagePath)
+        }
+    }
+    let images = ['Img_cardDeck/card_back.png', 'Img_cardDeck/card_joker.png'];
+    images.forEach(function(item, index) {
+    preloadImage(item);
+    })
+
+    const pokerHands = {
+        royalStrateFlush: {
+            name: "ロイヤルストレートフラッシュ",
+            cards: [
+                "Img_cardDeck/card_spade_10.png",
+                "Img_cardDeck/card_spade_11.png",
+                "Img_cardDeck/card_spade_12.png",
+                "Img_cardDeck/card_spade_13.png",
+                "Img_cardDeck/card_spade_01.png"
+            ],
+            description: "ポーカーでは、手札を同じマークで10・J・Q・K・Aと揃えると、「<span>${nameSpan}</span>」という役になります。",
+            nameSpan: "ロイヤルストレートフラッシュ"
+        },
+        straightFlush: {
+            name: "ストレートフラッシュ",
+            cards: [
+                "Img_cardDeck/card_heart_03.png",
+                "Img_cardDeck/card_heart_04.png",
+                "Img_cardDeck/card_heart_05.png",
+                "Img_cardDeck/card_heart_06.png",
+                "Img_cardDeck/card_heart_07.png"
+            ],
+            description: "同じマークで連続した数字だと「<span>${nameSpan}</span>」だよ。",
+            nameSpan: "ストレートフラッシュ"
+        },
+        fourCards: {
+            name: "フォーカード",
+            cards: [
+                "Img_cardDeck/card_club_12.png",
+                "Img_cardDeck/card_diamond_12.png",
+                "Img_cardDeck/card_heart_12.png",
+                "Img_cardDeck/card_spade_12.png",
+                "Img_cardDeck/card_diamond_03.png",
+            ],
+            description: "名前の通り同じ数字が4枚そろうと「<span>${nameSpan}</span>」なんだぞ〜。",
+            nameSpan: "フォーカード"
+        },
+    };
+
+    const keys = Object.keys(pokerHands);
+
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+
+    const hand = pokerHands[randomKey];
+
+    const new_h2 = document.getElementById('h2');
+    const new_ul = document.getElementById('ul');
+    const new_p = document.getElementById('p');
+    
+    new_h2.textContent = hand.name;
+
+    const htmlDescription = hand.description.replace("${nameSpan}", hand.nameSpan);
+    new_p.innerHTML = htmlDescription;
+
+    new_ul.innerHTML = '';
+    hand.cards.forEach(card => {
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = card;
+        li.appendChild(img);
+        new_ul.appendChild(li);
+    });
+
+    </script>
+  </body>
